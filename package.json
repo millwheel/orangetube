@@ -1,10 +1,10 @@
 {
-  "name": "wetube",
+  "name": "orangetube",
   "version": "1.0.0",
   "description": "The best way to watch videos.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/millwheel/wetube.git"
+    "url": "git+https://github.com/millwheel/orangetube.git"
   },
   "scripts": {
     "start": "node build/init.js",
@@ -17,9 +17,9 @@
   "author": "Sijun Park<sionwer4@naver.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/millwheel/wetube/issues"
+    "url": "https://github.com/millwheel/orangetube/issues"
   },
-  "homepage": "https://github.com/millwheel/wetube#readme",
+  "homepage": "https://github.com/millwheel/orangetube#readme",
   "dependencies": {
     "@ffmpeg/core": "^0.11.0",
     "@ffmpeg/ffmpeg": "^0.11.5",
