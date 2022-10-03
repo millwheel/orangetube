@@ -1,0 +1,69 @@
+// form{
+//     max-width: 420px;
+//     margin: 0 auto;
+//     margin-top: 100px;
+//     &:not(.search__form){
+//         padding: 30px;
+//         background-color: rgba($color:$bg,$alpha:0.7);
+//         border-radius: 10px;
+//         border: 1px solid rgba($color:#fff, $alpha: 0.1);
+//     }
+// }
+
+input[type="submit"]{
+    width: 98%;
+    margin: auto;
+    display: block;
+    text-align: center;
+    background-color: $red;
+    border: unset;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 18px;
+    &:hover{
+        cursor: pointer;
+    }
+    color:white
+}
+
+input:not(input[type="submit"]):not(input[type="range"]){
+    all:unset;
+    padding: 15px 20px;
+    border-radius: 5px;
+
+    border: solid;
+    border-color: rgba($color:black, $alpha: 0.1);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    width: 90%;
+    &:focus{
+        outline:none;
+    }
+    &:disabled{
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+.social__btn{
+    border-radius: 5px;
+    padding: 12px 20px;
+    background-color: white !important;
+    color: $red !important;
+    text-align: center !important;
+    cursor: pointer;
+    display: block;
+}
+
+// input[type="submit"],
+// .social__btn{
+//     border-radius: 5px;
+//     padding: 12px 20px;
+//     background-color: white;
+//     color: rgba($color:$red, $alpha:1);
+//     text-align: center;
+//     cursor: pointer;
+//     display: block;
+// }
+

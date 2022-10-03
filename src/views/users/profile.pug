@@ -1,0 +1,15 @@
+extends ../base
+include ../mixins/video
+
+block content 
+    .profile__data
+        if user.avatarUrl
+            img(src="/" + user.avatarUrl).avatar
+        else 
+            i.fas.fa-user.basicUserIcon
+        h3=user.name
+    div.video-grid
+        each video in user.videos
+            +video(video)
+        else 
+            span.empty__message No videos found
