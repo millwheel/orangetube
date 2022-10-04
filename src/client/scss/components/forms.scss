@@ -10,33 +10,18 @@
 //     }
 // }
 
-input[type="submit"]{
-    width: 98%;
-    margin: auto;
-    display: block;
-    text-align: center;
-    background-color: $red;
-    border: unset;
-    border-radius: 5px;
-    padding: 12px 20px;
-    font-size: 18px;
-    &:hover{
-        cursor: pointer;
-    }
-    color:white
-}
-
-input:not(input[type="submit"]):not(input[type="range"]){
-    all:unset;
+input:not(input[type="submit"]):not(input[type="range"]):not(input[type="file"]){
+    box-sizing : border-box;
     padding: 15px 20px;
     border-radius: 5px;
-
+    background-color: rgba($color:black, $alpha: 0);
     border: solid;
     border-color: rgba($color:black, $alpha: 0.1);
     border-radius: 5px;
     margin-bottom: 5px;
     font-size: 16px;
-    width: 90%;
+    color:white;
+    width: 100%;
     &:focus{
         outline:none;
     }
@@ -46,11 +31,29 @@ input:not(input[type="submit"]):not(input[type="range"]){
     }
 }
 
+input[type="submit"]{
+    width: 100%;
+    margin: auto;
+    display: block;
+    text-align: center;
+    background-color: $font;
+    border: unset;
+    border-radius: 5px;
+    padding: 13px 20px;
+    font-size: 18px;
+    &:hover{
+        cursor: pointer;
+    }
+    color:white;
+}
+
+
+
 .social__btn{
     border-radius: 5px;
-    padding: 12px 20px;
+    padding: 14px 20px;
     background-color: white !important;
-    color: $red !important;
+    color: $font !important;
     text-align: center !important;
     cursor: pointer;
     display: block;

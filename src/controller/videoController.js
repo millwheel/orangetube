@@ -9,6 +9,7 @@ Video.find({}, (error, videos) => {
 
 export const home = async (req, res) => {
     const videos = await Video.find({}).sort({ createdAt: "desc" }).populate("owner");
+    console.log(videos._id);
     return res.render("home", { pageTitle: "Home", videos });
 }
 export const watch = async (req, res) => {
@@ -29,7 +30,7 @@ export const getEdit = async (req, res) => {
     if (String(video.owner) !== String(_id)) {
         return res.status(403).redirect("/");
     }
-    return res.render("edit", { pageTitle: `Edit:${video.title}`, video });
+    return res.render("edit-video", { pageTitle: `Edit:${video.title}`, video });
 };
 export const postEdit = async (req, res) => {
     const { id } = req.params;

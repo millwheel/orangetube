@@ -4,5 +4,8 @@ mixin video(video)
         .video-mixin__data 
             span.video-mixin__title=video.title
             div.video.mixin__meta
-                span #{video.owner.name} / 
+                if video.owner
+                    span #{video.owner.name} / 
+                else 
+                    span User who have left
                 span #{video.meta.views}views

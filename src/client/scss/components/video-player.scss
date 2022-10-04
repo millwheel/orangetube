@@ -13,7 +13,7 @@
         align-items:center;
         border-radius: 10px;
         position:absolute;
-        bottom:10px;
+        bottom: 20px;
         width: 95%;
         left:0;
         right:0;
@@ -22,7 +22,7 @@
         grid-template-columns: 1fr 1fr 5fr 2fr auto;
         gap: 10px;
         justify-content: space-between;
-        background-color: #0f1117;
+        background-color: $block;
         padding: 5px;
         left: 0;
         .videoControls__play{

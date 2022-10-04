@@ -1,5 +1,7 @@
 .upload__container {
     width:100%;
+    max-width: 500px;
+    margin: 0 auto;
     .upload__video{
         margin-bottom: 20px;
         display:flex;
@@ -10,4 +12,23 @@
             margin-bottom:10px;
         }
     }
+    .video__update{
+        padding: 15px 20px;
+        border-radius: 5px;
+        border: solid;
+        border-color: rgba($color:black, $alpha: 0.1);
+        margin: 0 auto;
+        margin-top:5px;
+        margin-bottom: 5px;
+    }
+    .thumb__update{
+        padding: 15px 20px;
+        border-radius: 5px;
+        border: solid;
+        border-color: rgba($color:black, $alpha: 0.1);
+        margin: 0 auto;
+        margin-top:5px;
+        margin-bottom: 5px;
+    }
 }
+

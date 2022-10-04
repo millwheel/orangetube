@@ -1,0 +1,124 @@
+.watch__block{
+    background-color: $block;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.video__title__box{
+    margin-top: 10px;
+    height: 50px;
+    display: flex;
+    .video__title{
+        margin: auto 0;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 28px;
+        font-weight: 700;
+    }
+    .edit__video{
+        margin: auto 0;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size:20px;
+    }
+    .delete__video{
+        margin: auto 0;
+        margin-left: 10px;
+        margin-right:10px;
+        font-size:20px;
+    }
+
+}
+
+.show__info{
+    margin: auto 0;
+    margin-left: 10px;
+    opacity: 0.8;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+
+#videoInformation{
+    // display: none;
+    margin-top:5px;
+    margin-left: 10px;
+}
+
+
+
+
+.comment__tap{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.video__commentitle{
+    height: 20px;
+    padding: 5px;
+    margin:auto 0;
+    margin-left: 20px;
+    color:$font;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.video__add-comments{
+    margin: 0 auto;
+    text-align: right;
+    .video__comment-form{
+        margin: 10px;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        textarea{
+            width: 750px;
+            resize: none;
+            border: solid;
+            border-color: $font;
+            border-radius: 5px;
+        }
+        .comment__button{
+            background-color: $font;
+            color:white;
+            font-size: 700;
+            padding: 5px;
+            border:none;
+            border-radius: 5px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.video__comments {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: $block;
+    border-radius: 10px;
+    
+    .video__comment{
+        margin-left:20px;
+        padding: 5px;
+        border-radius: 5px;
+        color:$font;
+        margin-bottom: 10px;
+        .delete__comment{
+            text-align: right;
+        }
+    }
+}
+
+.delete__comment:hover{
+    cursor: pointer;
+}
+#deleteNewBtn:hover{
+    cursor:pointer;
+}

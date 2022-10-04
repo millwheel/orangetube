@@ -1,8 +1,24 @@
 .edit-profile__form{
-    label{
-        font-size: 14px;
-        margin-bottom: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    .profile__avatar{
         display: block;
+        margin: auto;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        width:100%;
+        max-width: 100px;
+    }
+    .avatar__update{
+        padding: 15px 20px;
+        border-radius: 5px;
+        border: solid;
+        border-color: rgba($color:black, $alpha: 0.1);
+        margin: 0 auto;
+        margin-top:5px;
+        margin-bottom: 5px;
+    }
+    .other__update{
     }
 }
 

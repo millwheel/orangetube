@@ -1,51 +1,54 @@
 extends base.pug
 
 block content
-    #videoContainer(data-id=video._id)
-        video(src="/" + video.fileUrl)
-        #videoControls.videoControls
-            .videoControls__play 
-                span#play.videoControls__playBtn 
-                    i.fas.fa-play
-            .videoControls__time
-                span#currentTime 00:00
-                span / 
-                span#totalTime 00:00
-            .videoControls__timeline
-                input(type="range", step="1", value=0, min="0")#timeline
-            .videoControls__volume
-                span#mute 
-                    i.fas.fa-volume-up
-                input(type="range", step="0.1", value=0.5 min="0", max="1")#volume
-            div 
-                span#fullScreen
-                    i.fas.fa-expand
+    .watch__block
+        #videoContainer(data-id=video._id)
+            video(src="/" + video.fileUrl)
+            #videoControls.videoControls
+                .videoControls__play 
+                    span#play.videoControls__playBtn 
+                        i.fas.fa-play
+                .videoControls__time
+                    span#currentTime 00:00
+                    span / 
+                    span#totalTime 00:00
+                .videoControls__timeline
+                    input(type="range", step="1", value=0, min="0")#timeline
+                .videoControls__volume
+                    span#mute 
+                        i.fas.fa-volume-up
+                    input(type="range", step="0.1", value=0.5 min="0", max="1")#volume
+                div 
+                    span#fullScreen
+                        i.fas.fa-expand
 
-    
-    div
-        p=video.description 
-        small=video.createdAt
-    div
-        small Uploaded by 
-            a(href=`/users/${video.owner._id}`)=video.owner.name
+        div.video__title__box
+            h2.video__title=video.title
+            if loggedInUser && String(video.owner._id) === String(loggedInUser._id)
+                a(href=`${video.id}/edit`).fas.fa-pencil.edit__video 
+                a(href=`${video.id}/delete`).fas.fa-trash-can.delete__video 
+        span.show__info show info
+        
+        div#videoInformation
+            p=video.description
+            small=video.createdAt
             br
-        if loggedInUser && String(video.owner._id) === String(loggedInUser._id)
-            a(href=`${video.id}/edit`) Edit Video &rarr;
-            br
-            a(href=`${video.id}/delete`) Delete Video &rarr;
-    
+            small Uploaded by 
+                a(href=`/users/${video.owner._id}`)=video.owner.name
+            
+        
     div.video__comments
         div.comment__tap
             span.video__commentitle Comments  
             if loggedInUser
             .video__add-comments  
                 form.video__comment-form#commentForm
-                    textarea(cols="50", rows="5", placeholder="Write a comment here")
+                    textarea(placeholder="Write a comment here")
                     button.comment__button Add Comment 
         ul 
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment.id)
-                    i.fas.fa-comment
+                    img.profile__avatar(src=loggedInUser.avatarUrl)
                     span  #{comment.text}
                     if loggedInUser && String(comment.owner._id) === String(loggedInUser._id)
                         span.delete__comment#deleteBtn &#x274C
