@@ -2,9 +2,6 @@ extends base.pug
 
 block content
     div.upload__container
-        div.upload__video 
-            video#preview
-            button#actionBtn.social__btn Start recording
         if errorMessage
             span=errorMessage
         form(method="POST", enctype="multipart/form-data")
@@ -14,10 +11,7 @@ block content
             div.thumb__update
                 label(for="thumb") Thumbnail File 
                 input(type="file", accept="image/*", required, id="thumb", name="thumb")
-            input(name="title", placeholder="Title", required, type="text" maxlength = 20)
-            input(name="description", placeholder="description", require, type="text", maxlength = 140)
+            input(name="title", placeholder="Title", required, type="text" maxlength = 60)
+            input(name="description", placeholder="description", require, type="text", maxlength = 400)
             input(name="hashtags", placeholder="hashtags, seperated by comma.", require, type="text")
             input(type="submit", value="Upload Video")
-
-block scripts 
-    script(src="/assets/js/recorder.js")

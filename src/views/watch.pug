@@ -4,6 +4,8 @@ block content
     .watch__block
         #videoContainer(data-id=video._id)
             video(src="/" + video.fileUrl)
+            #videoCenterButton 
+                i.fas.fa-plause
             #videoControls.videoControls
                 .videoControls__play 
                     span#play.videoControls__playBtn 
@@ -27,14 +29,20 @@ block content
             if loggedInUser && String(video.owner._id) === String(loggedInUser._id)
                 a(href=`${video.id}/edit`).fas.fa-pencil.edit__video 
                 a(href=`${video.id}/delete`).fas.fa-trash-can.delete__video 
-        span.show__info show info
+        span#showInfo.show__info Show info
         
-        div#videoInformation
-            p=video.description
-            small=video.createdAt
-            br
-            small Uploaded by 
-                a(href=`/users/${video.owner._id}`)=video.owner.name
+        div#videoInfo.hidden
+            div.uploaded
+                small Uploaded by 
+                    a(href=`/users/${video.owner._id}`)=video.owner.name
+            div.view__date
+                div.views
+                    p=`${video.meta.views} views`
+                div.createdAt
+                    p=video.createdAt
+            div.description
+                p=video.description
+            
             
         
     div.video__comments
@@ -48,7 +56,7 @@ block content
         ul 
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment.id)
-                    img.profile__avatar(src=loggedInUser.avatarUrl)
+                    span #{comment.owner}
                     span  #{comment.text}
                     if loggedInUser && String(comment.owner._id) === String(loggedInUser._id)
                         span.delete__comment#deleteBtn &#x274C

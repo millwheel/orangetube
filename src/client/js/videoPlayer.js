@@ -1,6 +1,8 @@
 const video = document.querySelector("video"); //HTML inherent element
 const playBtn = document.getElementById("play");
 const playBtnIcon = playBtn.querySelector("i");
+const centerBtn = document.getElementById("videoCenterButton");
+const centerBtnIcon = centerBtn.querySelector("i");
 const muteBtn = document.getElementById("mute");
 const muteBtnIcon = muteBtn.querySelector("i");
 const time = document.getElementById("time");
@@ -12,6 +14,8 @@ const fullScreenBtn = document.getElementById("fullScreen");
 const fullScreenIcon = fullScreenBtn.querySelector("i");
 const videoContainer = document.getElementById("videoContainer");
 const videoControls = document.getElementById("videoControls");
+const videoInfo = document.getElementById("videoInfo");
+const showInfoBtn = document.getElementById("showInfo");
 
 let controlsTimeout = null;
 let volumeValue = 0.5;
@@ -24,6 +28,11 @@ const handlePlayClick = () => {
         video.pause();
     }
     playBtnIcon.className = video.paused ? "fas fa-play" : "fas fa-pause";
+    centerBtnIcon.className = video.paused ? "fas fa-pause" : "fas fa-play";
+    centerBtnIcon.classList.add("showing");
+    setTimeout(() => {
+        centerBtnIcon.classList.remove("showing")
+    }, 500);
 };
 
 const handleMuteClick = () => {
@@ -98,12 +107,24 @@ const handleEnded = () => {
     });
 }
 
-playBtn.addEventListener("click", handlePlayClick);
+const handleShowInfo = () => {
+    if (videoInfo.classList.contains("hidden")){
+        videoInfo.classList.remove("hidden");
+        showInfoBtn.innerText="Hide info";
+    }else{
+        videoInfo.classList.add("hidden");
+        showInfoBtn.innerText="Show info";
+    }
+}
+
+playBtnIcon.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMuteClick);
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("ended", handleEnded);
 videoContainer.addEventListener("mousemove", handleMouseMove);
+centerBtn.addEventListener("click",handlePlayClick);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullScreen);
+showInfoBtn.addEventListener("click", handleShowInfo);

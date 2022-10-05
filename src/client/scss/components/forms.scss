@@ -20,7 +20,7 @@ input:not(input[type="submit"]):not(input[type="range"]):not(input[type="file"])
     border-radius: 5px;
     margin-bottom: 5px;
     font-size: 16px;
-    color:white;
+    color:$writing;
     width: 100%;
     &:focus{
         outline:none;

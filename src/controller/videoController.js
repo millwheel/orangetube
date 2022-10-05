@@ -9,7 +9,6 @@ Video.find({}, (error, videos) => {
 
 export const home = async (req, res) => {
     const videos = await Video.find({}).sort({ createdAt: "desc" }).populate("owner");
-    console.log(videos._id);
     return res.render("home", { pageTitle: "Home", videos });
 }
 export const watch = async (req, res) => {
@@ -19,6 +18,9 @@ export const watch = async (req, res) => {
         return res.status(404).render("404", { pageTitle: "Video not found" });
     };
     return res.render("watch", { pageTitle: video.title, video });
+};
+export const recordVideo = (req, res) => {
+    return res.render("record"), { pageTitle: "Record video" };
 };
 export const getEdit = async (req, res) => {
     const { id } = req.params;
@@ -39,9 +41,6 @@ export const postEdit = async (req, res) => {
     if (!video) {
         return res.status(404).render("404", { pageTitle: "Video not found" });
     };
-    if (String(video.owner) !== String(_id)) {
-        return res.status(403).redirect("/");
-    }
     await Video.findByIdAndUpdate(id, {
         title,
         description,
@@ -139,16 +138,16 @@ export const createComment = async (req, res) => {
     video.save();
     const newCommentId = comment._id;
     return res.status(201).json({ newCommentId });
-    
+
 }
 
-export const deleteComment = async(req, res) => {
-    const { 
+export const deleteComment = async (req, res) => {
+    const {
         session: { user },
         params: { id }
     } = req;
     const comment = await Comment.findById(id);
-    if(comment.owner._id != user._id){
+    if (comment.owner._id != user._id) {
         return res.sendStatus(403);
     }
     await Comment.findByIdAndDelete(id);

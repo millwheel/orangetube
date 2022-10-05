@@ -40,10 +40,31 @@
 }
 
 
-#videoInformation{
+#videoInfo{
     // display: none;
     margin-top:5px;
     margin-left: 10px;
+    .uploaded{
+        margin-top:10px;
+        margin-bottom: 10px;
+    }
+    .view__date{
+        display: flex;
+        flex-direction: row;
+        margin-top:10px;
+        margin-bottom: 10px;
+        gap:20px;
+        .views{
+            font-weight: 700;
+        }
+        .createdAt{
+            font-weight: 700;
+        }    
+    }
+    .description{
+        
+    }
+    
 }
 
 
@@ -69,22 +90,27 @@
 .video__add-comments{
     margin: 0 auto;
     text-align: right;
+    width: 100%;
     .video__comment-form{
         margin: 10px;
         height: 50px;
         display: flex;
         flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
         textarea{
-            width: 750px;
+            flex:8;
             resize: none;
             border: solid;
             border-color: $font;
             border-radius: 5px;
         }
         .comment__button{
+            flex:1;
             background-color: $font;
             color:white;
-            font-size: 700;
+            font-size: 600;
+            font-weight: 700;
             padding: 5px;
             border:none;
             border-radius: 5px;
@@ -105,13 +131,17 @@
     border-radius: 10px;
     
     .video__comment{
-        margin-left:20px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
         padding: 5px;
         border-radius: 5px;
         color:$font;
+        background-color: $bg;
+        font-size: 18px;
+        width: 95%;
         margin-bottom: 10px;
         .delete__comment{
-            text-align: right;
         }
     }
 }
@@ -121,4 +151,8 @@
 }
 #deleteNewBtn:hover{
     cursor:pointer;
+}
+
+.hidden{
+    display: none;
 }

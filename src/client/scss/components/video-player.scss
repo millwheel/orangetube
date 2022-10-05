@@ -4,6 +4,28 @@
     video{
         width:100%;
     }
+    #videoCenterButton{
+        position: absolute;
+        font-size: 200px;
+        top:10px;
+        left:0px;
+        padding-top: 100px;
+        padding-left: 365px;
+        padding-bottom: 100px;
+        padding-right: 365px;
+        &:hover{
+            cursor: pointer;
+        }
+        i{ 
+            
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            &.showing{
+                opacity: 1;
+            }
+            
+        }
+    }
     .videoControls{
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
@@ -19,7 +41,7 @@
         right:0;
         margin:0 auto;
         display: grid;
-        grid-template-columns: 1fr 1fr 5fr 2fr auto;
+        grid-template-columns: 1fr 2fr 6fr 2fr auto;
         gap: 10px;
         justify-content: space-between;
         background-color: $block;
@@ -31,6 +53,9 @@
             justify-content: space-around;
             .videoControls__playBtn {
                 margin: 0px 15px;
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
         .videoControls__time{
@@ -38,6 +63,11 @@
         }
         .videoControls__timeline{
             text-align: center;
+            input{
+                &:hover{
+                    cursor: pointer;
+                }
+            }
         }
         
         .videoControls__volume{
@@ -47,6 +77,14 @@
                 margin:10px;
                 i{
                     font-size: 15px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+            input{
+                &:hover{
+                    cursor: pointer;
                 }
             }
         }

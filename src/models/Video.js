@@ -1,11 +1,20 @@
 import mongoose from "mongoose";
 
+const getClock = () => {
+    const date = new Date();
+    const year = String(date.getFullYear());
+    const month = String(date.getMonth() + 1);
+    const day = String(date.getDate());
+    const time = `${year}.${month}.${day}`;
+    return time;
+}
+
 const videoSchema = new mongoose.Schema({
     title: { type: String, required: true, trim: true, maxLength: 20 },
     fileUrl: { type: String, required: true },
     thumbUrl: { type: String, required: true },
     description: { type: String, required: true, trim: true, maxLength: 140 },
-    createdAt: { type: Date, required: true, default: Date.now },
+    createdAt: { type: String, required: true, default: getClock},
     hashtags: [{ type: String }],
     meta: {
         views: { type: Number, default: 0 },
