@@ -93,6 +93,9 @@
 
 #fullScreen{
     margin: 10px;
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 #timeline{

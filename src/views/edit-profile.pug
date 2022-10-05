@@ -13,7 +13,7 @@ block content
                 label(for="avatar") Avatar 
                 input(type="file", id="avatar", name="avatar", accept="image/*")
             div.other__update
-                input(name="name", placeholder="Name", type="text", required, value=loggedInUser.name)
+                input(name="name", placeholder="Name", type="text", required, value=loggedInUser.name, maxlength=14)
                 input(name="email", placeholder="Email", type="email", required, value=loggedInUser.email)
                 input(name="username", placeholder="Username", type="text", required, value=loggedInUser.username)
                 input(name="location", placeholder="Location", type="text", required, value=loggedInUser.location)

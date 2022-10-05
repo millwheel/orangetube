@@ -49,17 +49,20 @@ block content
         div.comment__tap
             span.video__commentitle Comments  
             if loggedInUser
-            .video__add-comments  
-                form.video__comment-form#commentForm
-                    textarea(placeholder="Write a comment here")
-                    button.comment__button Add Comment 
+                .video__add-comments  
+                    form.video__comment-form#commentForm
+                        textarea(placeholder="Write a comment here")
+                        button.comment__button Add Comment 
         ul 
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment.id)
-                    span #{comment.owner}
-                    span  #{comment.text}
-                    if loggedInUser && String(comment.owner._id) === String(loggedInUser._id)
-                        span.delete__comment#deleteBtn &#x274C
+                    div.comment__user-info
+                        img(src="/" + comment.userAvatar)
+                        span  #{comment.name}:
+                    div.comment__content
+                        span  #{comment.text}
+                        if loggedInUser && String(comment.owner._id) === String(loggedInUser._id)
+                            span#deleteBtn.delete__comment &#x274C
     
 block scripts 
     script(src="/assets/js/videoPlayer.js")

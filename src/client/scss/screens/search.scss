@@ -5,6 +5,8 @@
     display: flex;
     position: relative;
     align-items: center;
+    background-color: $block;
+    border-radius: 10px;
     input{
         all:unset;
         padding: 15px 20px;

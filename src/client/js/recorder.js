@@ -53,12 +53,12 @@ const handleDownload = async () => {
     URL.revokeObjectURL(videoFile);
 
     actionBtn.disabled = false;
-    actionBtn.innerText = "Record again";
+    actionBtn.innerText = "REC";
     actionBtn.addEventListener("click", handleStart);
 }
 
 const handleStop = () => {
-    actionBtn.innerText = "Download Recording";
+    actionBtn.innerText = "Download";
     actionBtn.removeEventListener("click", handleStop);
     actionBtn.addEventListener("click", handleDownload);
     recorder.stop();
@@ -66,7 +66,7 @@ const handleStop = () => {
 }
 
 const handleStart = () => {
-    actionBtn.innerText = "Stop Recording";
+    actionBtn.innerText = "Stop";
     actionBtn.removeEventListener("click", handleStart);
     actionBtn.addEventListener("click", handleStop);
     recorder = new MediaRecorder(stream);

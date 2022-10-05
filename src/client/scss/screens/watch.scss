@@ -47,6 +47,11 @@
     .uploaded{
         margin-top:10px;
         margin-bottom: 10px;
+        a{
+            font-size: 17px;
+            font-weight: 700;
+            color:$writing;
+        }
     }
     .view__date{
         display: flex;
@@ -132,7 +137,6 @@
     
     .video__comment{
         display: flex;
-        justify-content: space-between;
         margin: 0 auto;
         padding: 5px;
         border-radius: 5px;
@@ -141,8 +145,29 @@
         font-size: 18px;
         width: 95%;
         margin-bottom: 10px;
-        .delete__comment{
+        .comment__user-info{
+            flex:1;
+            img{
+                max-width: 30px;
+                border-radius: 10px;
+            }
+            span{
+                position:absolute;
+                margin-left:5px;
+                margin-top:5px;
+                color:$writing;
+            }
         }
+        .comment__content{
+            flex:4;
+            display: flex;
+            justify-content: space-between;
+            span{
+                margin-top:5px;
+            }
+            
+        }
+
     }
 }
 

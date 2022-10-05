@@ -1,6 +1,9 @@
 .record__container{
     max-width: 600px;
     margin: 0 auto;
+    background-color: $block;
+    padding: 20px;
+    border-radius: 10px;
     .record__title{
         width:100%;
         text-align: center;
@@ -23,8 +26,9 @@
             margin:auto;
             margin-top:20px;
             background-color: white;
-            color:$font;
-            font-size: 17px;
+            border:none;
+            color: red;
+            font-size: 20px;
             font-weight: 700;
             padding: 15px 30px;
             border-radius: 10px;

@@ -1,4 +1,7 @@
 .video-mixin{
+    background-color: $block;
+    padding:10px;
+    border-radius: 10px;
     .video-mixin__thumb{
         height:140px;
         border-radius: 7px;

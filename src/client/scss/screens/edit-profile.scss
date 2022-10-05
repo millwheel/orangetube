@@ -1,6 +1,9 @@
 .edit-profile__form{
+    background-color: $block;
     max-width: 400px;
     margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
     .profile__avatar{
         display: block;
         margin: auto;

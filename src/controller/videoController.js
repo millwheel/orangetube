@@ -1,6 +1,7 @@
 import Video from "../models/Video";
 import Comment from "../models/Comment";
 import User from "../models/User";
+import { ContextExclusionPlugin } from "webpack";
 /*
 Video.find({}, (error, videos) => {
     return res.render("home", { pageTitle:"Home", videos });
@@ -17,6 +18,7 @@ export const watch = async (req, res) => {
     if (!video) {
         return res.status(404).render("404", { pageTitle: "Video not found" });
     };
+    console.log(video);
     return res.render("watch", { pageTitle: video.title, video });
 };
 export const recordVideo = (req, res) => {
@@ -133,11 +135,16 @@ export const createComment = async (req, res) => {
         text: text,
         owner: user._id,
         video: id,
+        name: user.name,
+        userAvatar: user.avatarUrl,
     });
     video.comments.push(comment._id);
     video.save();
-    const newCommentId = comment._id;
-    return res.status(201).json({ newCommentId });
+    return res.status(201).json({ 
+        newCommentId: comment._id,
+        newCommentUser: comment.name,
+        newCommentAvatar:comment.userAvatar,
+    });
 
 }
 
@@ -146,10 +153,15 @@ export const deleteComment = async (req, res) => {
         session: { user },
         params: { id }
     } = req;
-    const comment = await Comment.findById(id);
-    if (comment.owner._id != user._id) {
+    const comment = await Comment.findById(id).populate("video");
+    if (String(comment.owner._id) != String(user._id)) {
         return res.sendStatus(403);
     }
-    await Comment.findByIdAndDelete(id);
+    const video = comment.video;
+    video.comments = video.comments.filter((e) => String(e) !== String(id));
+
+    comment.remove();
+    video.save();
+
     return res.sendStatus(200);
 };
