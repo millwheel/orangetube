@@ -20,9 +20,9 @@ header
                     a(href=`/users/${loggedInUser._id}`)
                         if loggedInUser.avatarUrl
                             if loggedInUser.avatarUrl.includes("github")
-                                img.header__avatar(src=loggedInUser.avatarUrl crossorigin="use-credentials")
+                                img.header__avatar(src=loggedInUser.avatarUrl,crossorigin)
                             else 
-                                img.header__avatar(src=loggedInUser.avatarUrl crossorigin="use-credentials")
+                                img.header__avatar(src=loggedInUser.avatarUrl,crossorigin)
                         else 
                             i.fas.fa-user.basicUserIcon
             else
