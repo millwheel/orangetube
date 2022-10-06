@@ -6,7 +6,7 @@ block content
             if loggedInUser.socialOnly 
                 img.profile__avatar(src=loggedInUser.avatarUrl)
             else 
-                img.profile__avatar(src="/" + loggedInUser.avatarUrl)
+                img.profile__avatar(src=loggedInUser.avatarUrl)
 
         form(method="POST", enctype="multipart/form-data")
             div.avatar__update

@@ -57,7 +57,7 @@ block content
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment.id)
                     div.comment__user-info
-                        img(src="/" + comment.userAvatar)
+                        img(src=comment.userAvatar)
                         span  #{comment.name}:
                     div.comment__content
                         span  #{comment.text}
