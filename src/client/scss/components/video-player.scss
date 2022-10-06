@@ -4,7 +4,7 @@
     video{
         width:100%;
     }
-    #videoCenterButton{
+    .video__center{
         position: absolute;
         font-size: 200px;
         top:10px;
@@ -100,4 +100,11 @@
 
 #timeline{
     width: 100%
+}
+
+.video__center__full{
+    padding-top: 350px !important;
+    padding-left: 800px !important;
+    padding-bottom: 350px !important;
+    padding-right: 800px !important;
 }
