@@ -7,7 +7,7 @@ block content
             if loggedInUser.socialOnly 
                 img(src="https://www.thesprucepets.com/thmb/pLgYCDFbbNtwYqqBx_6FDiaCf5U=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/how-is-a-cats-age-determined-554296-01-52252e4c987b4655a4bf14394757e54e.jpg")
             else 
-                img(src="/" + user.avatarUrl).header__avatar
+                img(src=user.avatarUrl).header__avatar
         else 
             i.fas.fa-user.basicUserIcon
         h3=user.name
