@@ -57,6 +57,8 @@ export const videoUpload = multer({
 
 export const crossOrigin = (req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header("Cross-Origin-Embedder-Policy", "require-corp");
+    res.header("Cross-Origin-Opener-Policy", "same-origin");
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
