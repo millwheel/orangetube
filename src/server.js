@@ -28,7 +28,7 @@ app.use(
         }),
     })
 );
-app.use(crossOrigin);
+// app.use(crossOrigin);
 app.use(flash());
 app.use(localMiddleware);
 app.use("/uploads", express.static("uploads"));
