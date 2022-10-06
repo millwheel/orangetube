@@ -60,13 +60,13 @@ export const startGithubLogin = (req, res) => {
     const finalUrl = `${baseUrl}?${params}`;
     return res.redirect(finalUrl);
 }
-
+ 
 export const finishGithubLogin = async (req, res) => {
     const baseUrl = "https://github.com/login/oauth/access_token";
     const config = {
         client_id: process.env.GH_CLIENT,
         client_secret: process.env.GH_SECRET,
-        code: req.query.code
+        code: req.query.code,
     };
     const params = new URLSearchParams(config).toString();
     const finalUrl = `${baseUrl}?${params}`;
@@ -80,16 +80,17 @@ export const finishGithubLogin = async (req, res) => {
     ).json();
     if ("access_token" in tokenRequest) {
         const { access_token } = tokenRequest;
-        const apiUrl = "https://api.github.com"
         const userData = await (
-            await fetch(`${apiUrl}/user`, {
+            await fetch("https://api.github.com/user", {
                 headers: {
                     Authorization: `token ${access_token}`,
                 },
             })
         ).json();
+
+        console.log(userData);
         const emailData = await (
-            await fetch(`${apiUrl}/user/emails`, {
+            await fetch("https://api.github.com/user/emails", {
                 headers: {
                     Authorization: `token ${access_token}`,
                 },
@@ -101,9 +102,13 @@ export const finishGithubLogin = async (req, res) => {
         if (!emailObj) {
             return res.redirect("/login");
         }
-        let user = await User.findOne({ email: emailObj.email });
-        if (!user) {
-            user = await User.create({
+        const existingUser = await User.findOne({ email: emailObj.email });
+        if (existingUser) {
+            req.session.loggedIn = true;
+            req.session.user = existingUser;
+            return res.redirect("/");
+        }else{
+            const user = await User.create({
                 avatarUrl: userData.avatar_url,
                 name: userData.name,
                 username: userData.login,
@@ -112,10 +117,11 @@ export const finishGithubLogin = async (req, res) => {
                 socialOnly: true,
                 location: userData.location,
             });
+            req.session.loggedIn = true;
+            req.session.user = user;
+            return res.redirect("/");
         }
-        req.session.loggedIn = true;
-        req.session.user = user;
-        return res.redirect("/");
+
     } else {
         return res.redirect("/login");
     }
@@ -140,7 +146,7 @@ export const postEdit = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(
         _id,
         {
-            avatarUrl:file ? file.path : avatarUrl,
+            avatarUrl:file ? file.location : avatarUrl,
             name: name,
             email: email,
             username: username,
@@ -197,7 +203,6 @@ export const seeUser = async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(id).populate("videos");
     const videos = user.videos;
-    console.log(user.videos.thumbUrl);
     if (!user) {
         return res.status(404).render("404", { pageTitle: "User not found." });
     }

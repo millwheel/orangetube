@@ -3,7 +3,7 @@ extends base.pug
 block content
     .watch__block
         #videoContainer(data-id=video._id)
-            video(src="/" + video.fileUrl)
+            video(src=video.fileUrl)
             #videoCenterButton.video__center
                 i.fas.fa-plause
             #videoControls.videoControls

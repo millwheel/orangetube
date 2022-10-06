@@ -18,7 +18,6 @@ export const watch = async (req, res) => {
     if (!video) {
         return res.status(404).render("404", { pageTitle: "Video not found" });
     };
-    console.log(video);
     return res.render("watch", { pageTitle: video.title, video });
 };
 export const recordVideo = (req, res) => {
@@ -61,8 +60,8 @@ export const postUpload = async (req, res) => {
         const newVideo = await Video.create({
             title,
             description,
-            fileUrl: video[0].path,
-            thumbUrl: Video.changePathFormula(thumb[0].path),
+            fileUrl: video[0].location,
+            thumbUrl: Video.changePathFormula(thumb[0].location),
             owner: _id,
             hashtags: Video.formatHashtags(hashtags),
         });
