@@ -34,7 +34,8 @@ block content
         div#videoInfo.hidden
             div.uploaded
                 small Uploaded by 
-                img(src=video.owner.avatarUrl, crossorigin).owner__avatar
+                if video.owner.avatarUrl
+                    img(src=video.owner.avatarUrl, crossorigin).owner__avatar
                 a(href=`/users/${video.owner._id}`)=video.owner.name
             div.view__date
                 div.views
@@ -58,7 +59,10 @@ block content
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment.id)
                     div.comment__user-info
-                        img(src=comment.userAvatar,crossorigin)
+                        if comment.userAvatar
+                            img(src=comment.userAvatar,crossorigin)
+                        else 
+                            i.fas.fa-user.basicUserIcon
                         span  #{comment.name}:
                     div.comment__content
                         span  #{comment.text}
