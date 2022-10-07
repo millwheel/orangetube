@@ -3,7 +3,7 @@ include mixins/video
 
 block content
     div.video-grid
-        each element in videos 
+        each element in videos.reverse() 
             +video(element)
         else 
             span.empty__message No videos found

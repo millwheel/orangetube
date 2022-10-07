@@ -12,7 +12,7 @@ block content
             i.fas.fa-user.basicUserIcon
         h3=user.name
     div.video-grid
-        each video in videos
+        each video in videos.reverse()
             +video(video)
         else 
             span.empty__message No videos found
