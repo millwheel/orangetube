@@ -65,24 +65,6 @@ export const videoUpload = multer({
     storage: isHeroku ? s3VideoUploader : undefined,
 });
 
-export const s3DeleteAvatarMiddleware = (req, res, next) => {
-    if (!req.file) {
-        return next();
-    }
-    s3.deleteObject(
-        {
-            Bucket: `orangetube`,
-            Key: `images/${req.session.user.avatarURL.split('/')[4]}`,
-        },
-        (err, data) => {
-            if (err) {
-                throw err;
-            }
-            console.log(`s3 deleteObject`, data);
-        }
-    );
-    next();
-};
 
 
 export const crossOrigin = (req, res, next) => {

@@ -10,10 +10,10 @@ const getClock = () => {
 }
 
 const videoSchema = new mongoose.Schema({
-    title: { type: String, required: true, trim: true, maxLength: 20 },
+    title: { type: String, required: true, trim: true, maxLength: 40 },
     fileUrl: { type: String, required: true },
     thumbUrl: { type: String, required: true },
-    description: { type: String, required: true, trim: true, maxLength: 140 },
+    description: { type: String, required: true, trim: true, maxLength: 400 },
     createdAt: { type: String, required: true, default: getClock},
     hashtags: [{ type: String }],
     meta: {
