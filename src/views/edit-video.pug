@@ -3,9 +3,10 @@ extends base.pug
 
 
 block content
-    h4 Change Title of video
-    form(method="POST")
-        input(name="title", placeholder="Video Title", value=video.title, required, maxlength=40)
-        input(name="description", placeholder="description", require, type="text", value=video.description, maxlength = 400)
-        input(name="hashtags", placeholder="hashtags, seperated by comma.", require, type="text", value=video.hashtags.join())
-        input(value="Save", type="submit")
+    .edit-video__form
+        h3 Change information of video
+        form(method="POST")
+            input(name="title", placeholder="Video Title", value=video.title, required, maxlength=40)
+            input(name="description", placeholder="description", require, type="text", value=video.description, maxlength = 400)
+            input(name="hashtags", placeholder="hashtags, seperated by comma.", require, type="text", value=video.hashtags.join())
+            input(value="Save", type="submit")
