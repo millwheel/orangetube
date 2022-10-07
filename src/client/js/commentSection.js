@@ -11,6 +11,7 @@ const addComment = (text, newCommentId, newCommentUser, newCommentAvatar) => {
     div1.className = "comment__user-info";
     const img1 = document.createElement("img");
     img1.src = `/${newCommentAvatar}`;
+    img1.crossOrigin = "";
     const span1 = document.createElement("span");
     span1.innerText = ` ${newCommentUser}:`;
     div1.appendChild(img1);
