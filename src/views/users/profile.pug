@@ -5,9 +5,9 @@ block content
     .profile__data
         if user.avatarUrl
             if loggedInUser.socialOnly 
-                img(src=user.avatarUrl)
+                img(src=user.avatarUrl,crossorigin).header__avatar
             else 
-                img(src=user.avatarUrl).header__avatar
+                img(src=user.avatarUrl,crossorigin).header__avatar
         else 
             i.fas.fa-user.basicUserIcon
         h3=user.name

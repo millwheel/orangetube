@@ -4,9 +4,9 @@ block content
     div.edit-profile__form
         if loggedInUser.avatarUrl
             if loggedInUser.socialOnly 
-                img.profile__avatar(src=loggedInUser.avatarUrl)
+                img.profile__avatar(src=loggedInUser.avatarUrl,crossorigin)
             else 
-                img.profile__avatar(src=loggedInUser.avatarUrl)
+                img.profile__avatar(src=loggedInUser.avatarUrl,crossorigin)
 
         form(method="POST", enctype="multipart/form-data")
             div.avatar__update
