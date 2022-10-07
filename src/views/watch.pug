@@ -34,7 +34,8 @@ block content
         div#videoInfo.hidden
             div.uploaded
                 small Uploaded by 
-                    a(href=`/users/${video.owner._id}`)=video.owner.name
+                img(src=video.owner.avatarUrl)
+                a(href=`/users/${video.owner._id}`)=video.owner.name
             div.view__date
                 div.views
                     p=`${video.meta.views} views`
