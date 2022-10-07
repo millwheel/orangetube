@@ -7,6 +7,14 @@
         border-radius: 7px;
         width: 100%;
         background-color: ivory;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        .thumb__img{
+            max-height: 100%;
+            display: block;
+            margin: auto;
+        }
     }
     .video-mixin__data{
         padding:0px 15px;
