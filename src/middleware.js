@@ -27,7 +27,8 @@ const s3VideoUploader = multerS3({
 export const localMiddleware = (req, res, next) => {
     res.locals.loggedIn = Boolean(req.session.loggedIn);
     res.locals.siteName = "Orangetube";
-    res.locals.loggedInUser = req.session.user || {};
+    res.locals.loggedInUser = req.session.user;
+    res.locals.isHeroku = isHeroku;
     next();
 }
 
@@ -64,3 +65,9 @@ export const videoUpload = multer({
     storage: isHeroku ? s3VideoUploader : undefined,
 });
 
+
+export const crossOrigin = (req, res, next) => {
+    res.header("Cross-Origin-Embedder-Policy", "require-corp");
+    res.header("Cross-Origin-Opener-Policy", "same-origin");
+    next();
+}

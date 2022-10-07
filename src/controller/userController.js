@@ -87,8 +87,6 @@ export const finishGithubLogin = async (req, res) => {
                 },
             })
         ).json();
-
-        console.log(userData);
         const emailData = await (
             await fetch("https://api.github.com/user/emails", {
                 headers: {
@@ -143,11 +141,12 @@ export const postEdit = async (req, res) => {
         body: { name, email, username, location },
         file,
     } = req;
+    console.log(req.file);
     const isHeroku = process.env.NODE_ENV === "production";
     const updatedUser = await User.findByIdAndUpdate(
         _id,
         {
-            avatarUrl:file ? (isHeroku ? file.location : file.path) : avatarUrl,
+            avatarUrl:file ? (isHeroku ? file.location : file.path ) : avatarUrl,
             name: name,
             email: email,
             username: username,
@@ -204,6 +203,8 @@ export const seeUser = async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(id).populate("videos");
     const videos = user.videos;
+    console.log(videos);
+    console.log(user);
     if (!user) {
         return res.status(404).render("404", { pageTitle: "User not found." });
     }

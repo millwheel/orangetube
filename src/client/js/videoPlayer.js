@@ -147,8 +147,8 @@ const handleKeydown = (event) => {
 playBtnIcon.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMuteClick);
 volumeRange.addEventListener("input", handleVolumeChange);
-video.addEventListener("canplay", handleLoadedData);
-handleLoadedData();
+video.addEventListener("loadeddata", handleLoadedData);
+// handleLoadedData();
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("ended", handleEnded);
 videoContainer.addEventListener("mousemove", handleMouseMove);

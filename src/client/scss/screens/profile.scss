@@ -1,4 +1,9 @@
 .profile__data{
+    background-color: $block;
+    padding: 20px;
+    border: solid;
+    border-color: $font;
+    border-radius: 20px;
     max-width: 100px;
     margin: 0 auto;
     display: flex;

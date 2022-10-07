@@ -54,6 +54,7 @@ export const getUpload = (req, res) => {
 export const postUpload = async (req, res) => {
     const { user: { _id } } = req.session;
     const { video, thumb } = req.files;
+    console.log(video, thumb);
     const { title, description, hashtags } = req.body;
     const isHeroku = process.env.NODE_ENV === "production";
     try {
@@ -61,7 +62,7 @@ export const postUpload = async (req, res) => {
             title,
             description,
             fileUrl: isHeroku ? video[0].location : video[0].path,
-            thumbUrl: isHeroku ? thumb[0].location : video[0].path,
+            thumbUrl: isHeroku ? Video.changePathFormula(thumb[0].location) : Video.changePathFormula(thumb[0].path),
             owner: _id,
             hashtags: Video.formatHashtags(hashtags),
         });
@@ -127,6 +128,7 @@ export const createComment = async (req, res) => {
         params: { id },
     } = req;
     const video = await Video.findById(id);
+    console.log(video);
     if (!video) {
         return res.sendStatus(404);
     }
