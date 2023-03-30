@@ -5,6 +5,6 @@ The users can record the video through their camera and download it.
 They also can upload videos and manage them on their my page.
 
 
-## web application
+## website address
 
 https://orangetube.herokuapp.com/
