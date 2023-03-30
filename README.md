@@ -8,3 +8,5 @@ They also can upload videos and manage them on their my page.
 ## website address
 
 https://orangetube.herokuapp.com/
+
+Since heroku doesn't provide free server servcie, I am checking an alternative.
