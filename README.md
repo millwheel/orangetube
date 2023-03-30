@@ -9,4 +9,5 @@ They also can upload videos and manage them on their my page.
 
 https://orangetube.herokuapp.com/
 
-Since heroku doesn't provide free server servcie, the deployed websited is not available. I am checking an alternative method.
+Since heroku does not provide free servcie anymore, the deployed websited is not available now.  
+I am checking an alternative method.
