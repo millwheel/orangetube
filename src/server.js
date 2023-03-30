@@ -14,8 +14,8 @@ const app = express();
 const logger = morgan("dev");
 
 app.set("view engine", "pug");
-app.set("views", process.cwd() + "/src/views"); //process.cwd()는 노드의 작업 경로
-app.use(logger); // 모든 route에 적용된다.
+app.set("views", process.cwd() + "/src/views");
+app.use(logger); 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(
@@ -38,9 +38,5 @@ app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
 app.use("/api", apiRouter);
-
-// express는 코드를 위에서부터 아래로 작동시킨다.
-
-// get이랑 Listen이랑 형식이 매우 비슷하다. 첫번째 인자에 입력이 있고, 두번째 인자에 함수가 있음.
 
 export default app;

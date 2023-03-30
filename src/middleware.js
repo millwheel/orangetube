@@ -57,6 +57,7 @@ export const avatarUpload = multer({
     },
     storage: isHeroku ? s3ImageUploader : undefined,
 });
+
 export const videoUpload = multer({
     dest: "uploads/videos/",
     limits: {
