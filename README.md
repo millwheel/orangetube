@@ -11,3 +11,7 @@ https://orangetube.herokuapp.com/
 
 Since heroku does not provide free servcie anymore, the deployed websited is not available now.  
 I am checking an alternative method.
+
+Or
+
+You can pull this repository and start with terminal command "npm run start"  
