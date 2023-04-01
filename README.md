@@ -14,4 +14,4 @@ I am checking an alternative method.
 
 Or
 
-You can pull this repository and start with terminal command "npm run start"  
+You can pull this repository and start with terminal command "npm run build" and "npm run start"  
