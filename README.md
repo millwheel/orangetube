@@ -7,11 +7,6 @@ They also can upload videos and manage them on their my page.
 
 ## website address
 
-https://orangetube.herokuapp.com/
+https://orangetube-millwheel.koyeb.app/
 
-Since heroku does not provide free servcie anymore, the deployed websited is not available now.  
-I am checking an alternative method.
-
-Or
-
-You can pull this repository and start with terminal command "npm run build" and "npm run start"  
+successfully migrated from heroku to koyeb
