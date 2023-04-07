@@ -1,11 +1,6 @@
 import Video from "../models/Video";
 import Comment from "../models/Comment";
 import User from "../models/User";
-/*
-Video.find({}, (error, videos) => {
-    return res.render("home", { pageTitle:"Home", videos });
-});
-*/
 
 export const home = async (req, res) => {
     const videos = await Video.find({}).sort({ createdAt: "desc" }).populate("owner");
@@ -57,7 +52,7 @@ export const postUpload = async (req, res) => {
     const { video, thumb } = req.files;
     console.log(video, thumb);
     const { title, description, hashtags } = req.body;
-    const prod = process.env.NODE_ENV === "production";
+    const prod = 1;
     try {
         const newVideo = await Video.create({
             title,
@@ -77,7 +72,6 @@ export const postUpload = async (req, res) => {
             errorMessage: error._message
         });
     }
-
 }
 
 export const deleteVideo = async (req, res) => {
@@ -147,7 +141,6 @@ export const createComment = async (req, res) => {
         newCommentUser: comment.name,
         newCommentAvatar:comment.userAvatar,
     });
-
 }
 
 export const deleteComment = async (req, res) => {

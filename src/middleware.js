@@ -9,7 +9,7 @@ const s3 = new aws.S3({
     }
 })
 
-const prod = process.env.NODE_ENV === "production";
+const prod = 1;
 
 const s3ImageUploader = multerS3({
     s3: s3,
@@ -65,8 +65,6 @@ export const videoUpload = multer({
     },
     storage: prod ? s3VideoUploader : undefined,
 });
-
-
 
 export const crossOrigin = (req, res, next) => {
     res.header("Cross-Origin-Embedder-Policy", "require-corp");

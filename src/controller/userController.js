@@ -142,7 +142,7 @@ export const postEdit = async (req, res) => {
         file,
     } = req;
     console.log(req.file);
-    const prod = process.env.NODE_ENV === "production";
+    const prod = 1;
     const updatedUser = await User.findByIdAndUpdate(
         _id,
         {
@@ -187,15 +187,13 @@ export const postChangePassword = async (req, res) => {
         });
     }
     user.password = newPassword;
-    await user.save(); //this method is to let bcrypt.hash work again
-    //send notification
+    await user.save(); 
     req.flash("error", "Password Updated");
     return res.redirect("/users/logout");
 };
 
 export const logout = (req, res) => {
     req.session.destroy();
-    // req.flash("error", "Bye Bye");
     return res.redirect("/");
 }
 
