@@ -64,8 +64,10 @@ const handleVolumeChange = (event) => {
 const formatTime = (seconds) => new Date(seconds * 1000).toISOString().substring(14, 19);
 
 const handleLoadedData = () => {
-    totalTime.innerText = formatTime(Math.floor(video.duration));
-    timeline.max = Math.floor(video.duration);
+    if(!isNaN(video.duration)){
+        totalTime.innerText = formatTime(Math.floor(video.duration));
+        timeline.max = Math.floor(video.duration);
+    }
 };
 
 const handleTimeUpdate = () => {
