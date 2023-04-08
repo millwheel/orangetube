@@ -13,13 +13,13 @@ const prod = 1;
 
 const s3ImageUploader = multerS3({
     s3: s3,
-    bucket: "orangetube/images",
+    bucket: "orangetube",
     ACL: 'public-read-write',
 });
 
 const s3VideoUploader = multerS3({
     s3: s3,
-    bucket: "orangetube/videos",
+    bucket: "orangetube",
     ACL: 'public-read-write',
 });
 
