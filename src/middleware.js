@@ -39,7 +39,7 @@ export const publicOnlyMiddleware = (req, res, next) => {
 export const avatarUpload = multer({
     storage: multerS3({
         s3: s3,
-        ACL: 'public-read',
+        ACL: 'public-read-write',
         bucket: "orangetube",
     })
 });
@@ -48,7 +48,7 @@ export const videoUpload = multer({
     storage: multerS3({
         s3: s3,
         bucket: "orangetube",
-        ACL: 'public-read',
+        ACL: 'public-read-write',
     })
 });
 
