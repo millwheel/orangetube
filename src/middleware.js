@@ -12,19 +12,6 @@ const s3 = new S3Client({
 
 const prod = 1;
 
-const s3ImageUploader = multerS3({
-    s3: s3,
-    bucket: "orangetube",
-    ACL: 'public-read-write',
-});
-
-const s3VideoUploader = multerS3({
-    s3: s3,
-    bucket: "orangetube",
-    ACL: 'public-read-write',
-});
-
-
 export const localMiddleware = (req, res, next) => {
     res.locals.loggedIn = Boolean(req.session.loggedIn);
     res.locals.siteName = "Orangetube";
@@ -52,19 +39,19 @@ export const publicOnlyMiddleware = (req, res, next) => {
 }
 
 export const avatarUpload = multer({
-    dest: "uploads/avatars/",
-    limits: {
-        fileSize: 3000000,
-    },
-    storage: prod ? s3ImageUploader : undefined,
+    storage: multerS3({
+        s3: s3,
+        ACL: 'public-read',
+        bucket: "orangetube",
+    })
 });
 
 export const videoUpload = multer({
-    dest: "uploads/videos/",
-    limits: {
-        fileSize: 10000000,
-    },
-    storage: prod ? s3VideoUploader : undefined,
+    storage: multerS3({
+        s3: s3,
+        bucket: "orangetube",
+        ACL: 'public-read',
+    })
 });
 
 export const crossOrigin = (req, res, next) => {
